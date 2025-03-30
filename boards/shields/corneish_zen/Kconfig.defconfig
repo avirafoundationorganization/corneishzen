@@ -1,0 +1,21 @@
+if SHIELD_CORNEISH_ZEN_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "CorneZenDongle"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_CORNEISH_ZEN_LEFT || SHIELD_CORNEISH_ZEN_RIGHT || SHIELD_CORNEISH_ZEN_DONGLE
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
+    default y
+
+config ZMK_BATTERY_REPORTING
+    default y
+endif
