@@ -6,6 +6,9 @@ manifest:
       url-base: https://github.com/caksoylar
     - name: avirafoundationorganization
       url-base: https://github.com/avirafoundationorganization
+    - name: b4skyx
+      url-base: https://github.com/b4skyx
+
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,8 +17,8 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
-    - name: corneishzen
-      remote: avirafoundationorganization
+    - name: prospector-zmk-module
+      remote: b4skyx
       revision: main
   self:
     path: config
