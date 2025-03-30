@@ -1,26 +1,10 @@
-/*
-*
-* Copyright (c) 2021 Darryl deHaan
-* SPDX-License-Identifier: MIT
-*
-*/
-
-/* /dts-v1/;    */
-#include <nordic/nrf52840_qiaa.dtsi>
-
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
-    model = "Corne-ish Zen";
-    compatible = "corneish_zen";
 
     chosen {
-        zephyr,code-partition = &code_partition;
-        zephyr,sram = &sram0;
-        zephyr,flash = &flash0;
         zmk,kscan = &kscan0;
-        zmk,display = &epd;
-        zephyr,console = &cdc_acm_uart;
         zmk,matrix-transform = &default_transform;
     };
 
@@ -67,26 +51,6 @@
 
 };
 
-&adc {
-    status = "okay";
+&xiao_serial {
+    status = "disabled";
 };
-
-&gpiote {
-    status = "okay";
-};
-
-&gpio0 {
-    status = "okay";
-};
-
-&gpio1 {
-    status = "okay";
-};
-
-&usbd {
-    status = "okay";
-    cdc_acm_uart: cdc_acm_uart {
-        compatible = "zephyr,cdc-acm-uart";
-    };
-};
-
