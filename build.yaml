@@ -29,7 +29,7 @@
 
 include:
   - board: seeeduino_xiao_ble
-    shield: corneish_zen_dongle prospector_adapter
+    shield: corneish_zen_dongle corneishzen
 
   - board: seeeduino_xiao_ble
     shield: corneish_zen_left rgbled_adapter
