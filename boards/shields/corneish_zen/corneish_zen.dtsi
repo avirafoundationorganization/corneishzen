@@ -9,12 +9,15 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
     model = "Corne-ish Zen";
     compatible = "corneish_zen";
 
     chosen {
+        
+        zmk,physical-layout = &default_layout;
         zephyr,code-partition = &code_partition;
         zephyr,sram = &sram0;
         zephyr,flash = &flash0;
@@ -23,6 +26,13 @@
         zephyr,console = &cdc_acm_uart;
         zmk,matrix-transform = &default_transform;
     };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+    };
+
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -83,38 +93,3 @@
     };
 };
 
-&flash0 {
-    /*
-     * For more information, see:
-     * http://docs.zephyrproject.org/latest/devices/dts/flash_partitions.html
-     */
-    partitions {
-        compatible = "fixed-partitions";
-        #address-cells = <1>;
-        #size-cells = <1>;
-
-        sd_partition: partition@0 {
-            reg = <0x00000000 0x00026000>;
-        };
-        code_partition: partition@26000 {
-            reg = <0x00026000 0x000c6000>;
-        };
-
-        /*
-         * The flash starting at 0x000ec000 and ending at
-         * 0x000f3fff is reserved for use by the application.
-         */
-
-        /*
-         * Storage partition will be used by FCB/LittleFS/NVS
-         * if enabled.
-         */
-        storage_partition: partition@ec000 {
-            reg = <0x000ec000 0x00008000>;
-        };
-
-        boot_partition: partition@f4000 {
-            reg = <0x000f4000 0x0000c000>;
-        };
-    };
-};
