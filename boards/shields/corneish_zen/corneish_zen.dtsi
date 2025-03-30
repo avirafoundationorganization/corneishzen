@@ -15,7 +15,6 @@
     compatible = "corneish_zen";
 
     chosen {
-        zmk,physical-layout = &default_layout;
         zephyr,code-partition = &code_partition;
         zephyr,sram = &sram0;
         zephyr,flash = &flash0;
