@@ -9,14 +9,12 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <physical_layouts.dtsi>
 
 / {
     model = "Corne-ish Zen";
     compatible = "corneish_zen";
 
     chosen {
-        
         zmk,physical-layout = &default_layout;
         zephyr,code-partition = &code_partition;
         zephyr,sram = &sram0;
